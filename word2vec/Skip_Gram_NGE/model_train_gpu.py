@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append("../Skip_Gram_NGE/")
 from skip_gram_nge_model import SkipGramModel
 from input_data import InputData
@@ -6,6 +7,7 @@ import torch.optim as optim
 from tqdm import tqdm
 import torch
 import argumentparser as argumentparser
+
 args = argumentparser.ArgumentParser()
 WINDOW_SIZE = args.window_size  # 上下文窗口c
 BATCH_SIZE = args.batch_size  # mini-batch
@@ -24,13 +26,13 @@ class Word2Vec:
         self.optimizer = optim.SGD(self.model.parameters(), lr=self.lr)
 
     def train(self):
-        #self.model.load_state_dict(torch.load("../results/skipgram_nge.pkl"))
+        # self.model.load_state_dict(torch.load("../results/skipgram_nge.pkl"))
         print("SkipGram Training......")
         pairs_count = self.data.evaluate_pairs_count(WINDOW_SIZE)
         print("pairs_count", pairs_count)
         batch_count = pairs_count / BATCH_SIZE
         print("batch_count", batch_count)
-        process_bar = tqdm(range(int(5*batch_count)))
+        process_bar = tqdm(range(int(5 * batch_count)))
         for i in process_bar:
             pos_pairs = self.data.get_batch_pairs(BATCH_SIZE, WINDOW_SIZE)
             pos_w = [int(pair[0]) for pair in pos_pairs]
@@ -45,10 +47,9 @@ class Word2Vec:
             loss.backward()
             self.optimizer.step()
 
-            
             process_bar.set_postfix(loss=loss.data)
             process_bar.update()
-        torch.save(self.model.state_dict(),"../results/skipgram_nge.pkl")
+        torch.save(self.model.state_dict(), "../results/skipgram_nge.pkl")
         self.model.save_embedding(self.data.id2word_dict, self.output_file_name)
 
 

@@ -2,12 +2,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 class SkipGramModel(nn.Module):
-    def __init__(self,vocab_size,embed_size):
-        super(SkipGramModel,self).__init__()
+    def __init__(self, vocab_size, embed_size):
+        super(SkipGramModel, self).__init__()
         self.vocab_size = vocab_size
         self.embed_size = embed_size
-        self.w_embeddings = nn.Embedding(vocab_size,embed_size)
+        self.w_embeddings = nn.Embedding(vocab_size, embed_size)
         self.v_embeddings = nn.Embedding(vocab_size, embed_size)
         self._init_emb()
 
@@ -17,9 +18,11 @@ class SkipGramModel(nn.Module):
         self.v_embeddings.weight.data.uniform_(-0, 0)
 
     def forward(self, pos_w, pos_v, neg_v):
-        emb_w = self.w_embeddings(torch.LongTensor(pos_w).cuda())  # 转为tensor 大小 [ mini_batch_size * emb_dimension ]
+        emb_w = self.w_embeddings(
+            torch.LongTensor(pos_w).cuda())  # 转为tensor 大小 [ mini_batch_size * emb_dimension ]
         emb_v = self.v_embeddings(torch.LongTensor(pos_v).cuda())
-        neg_emb_v = self.v_embeddings(torch.LongTensor(neg_v).cuda())  # 转换后大小 [ negative_sampling_number * mini_batch_size * emb_dimension ]
+        neg_emb_v = self.v_embeddings(
+            torch.LongTensor(neg_v).cuda())  # 转换后大小 [ negative_sampling_number * mini_batch_size * emb_dimension ]
         score = torch.mul(emb_w, emb_v)
 
         score = torch.sum(score, dim=1)
@@ -33,17 +36,17 @@ class SkipGramModel(nn.Module):
         loss = - torch.sum(score) - torch.sum(neg_score)
         return loss
 
-
     def save_embedding(self, id2word, file_name):
         embedding_1 = self.w_embeddings.weight.data.cpu().numpy()
         embedding_2 = self.v_embeddings.weight.data.cpu().numpy()
-        embedding = (embedding_1+embedding_2)/2
+        embedding = (embedding_1 + embedding_2) / 2
         fout = open(file_name, 'w')
         fout.write('%d %d\n' % (len(id2word), self.embed_size))
         for wid, w in id2word.items():
             e = embedding[wid]
             e = ' '.join(map(lambda x: str(x), e))
             fout.write('%s %s\n' % (w, e))
+
 
 if __name__ == '__main__':
     model = SkipGramModel(100, 10)
