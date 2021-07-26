@@ -1,6 +1,6 @@
 import sys
 sys.path.append("../Skip_Gram_NGE/")
-from skip_gram_nge_model import SkipGramModel
+from skip_gram_nge_model import SkipGramModel_CPU
 from input_data import InputData
 import torch.optim as optim
 from tqdm import tqdm
@@ -18,7 +18,7 @@ class Word2Vec:
     def __init__(self, input_file_name, output_file_name):
         self.output_file_name = output_file_name
         self.data = InputData(input_file_name, MIN_COUNT)
-        self.model = SkipGramModel(self.data.word_count, EMB_DIMENSION)
+        self.model = SkipGramModel_CPU(self.data.word_count, EMB_DIMENSION)
         self.lr = LR
         self.optimizer = optim.SGD(self.model.parameters(), lr=self.lr)
 
@@ -39,12 +39,10 @@ class Word2Vec:
             loss = self.model.forward(pos_w, pos_v, neg_v)
             loss.backward()
             self.optimizer.step()
-
-            
-
         self.model.save_embedding(self.data.id2word_dict, self.output_file_name)
 
 
 if __name__ == '__main__':
     w2v = Word2Vec(input_file_name='../data/text8.txt', output_file_name="/results/skip_gram_neg.txt")
     w2v.train()
+
