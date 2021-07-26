@@ -2,12 +2,7 @@
 ====
 
 # word2vec
-## 一.理论知识
-###1.
-###2.
-
-
-## 二.十问word2vec
+## 一.十问word2vec
 ### 1.介绍一下word2vec:
 > a.两个模型是CBOW和Skip-gram，两个加速训练的技巧是HS(Hierarchical Softmax)和负采样</br>
 > b.假设一个训练样本是核心词w和其上下文context（w）组成，CBOW就是用去预测w;而SKip-gram则反过来，是用w去预测context(w)里的所有词</br>
@@ -51,6 +46,9 @@
 
 ### 10.为什么用的是线性激活函数？
 >word2vec不是为了做语言模型，它不需要预测得更准
+
+## 二.论文复现
+> 代码位于word2vec目录中
 
 
 # Tranmsfor和Bert
