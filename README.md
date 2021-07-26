@@ -64,3 +64,4 @@
 ## 1.GPU计算的使用，***.cuda(),熟悉语法。
 ## 2.word2vec论文的复现。
 ## 3.transformer和BERT理论和实践。
+## 4.项目地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
