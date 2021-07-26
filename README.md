@@ -51,7 +51,6 @@
 ## 二.论文复现
 > 代码位于word2vec目录中
 
-
 # Tranmsfor和Bert
 ## 1.理论知识
 ### 1.
@@ -68,6 +67,6 @@
 > 看懂pytorch实现版本的代码</br>
 
 ## 3.transformer和BERT理论和实践。
-## 4.各类文本分类地址:https://github.com/649453932
+## 4.各类文本分类地址(刷题):https://github.com/649453932
 ## 5.基于Pytorch的Bert应用项目,地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
 ## 6.各类算法比赛的代码:https://github.com/datawhalechina/competition-baseline
