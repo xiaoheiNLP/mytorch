@@ -62,7 +62,11 @@
 
 # 目前的问题
 ## 1.GPU计算的使用，***.cuda(),熟悉语法。
+> 看资料然后多试试</br>
+
 ## 2.word2vec论文的复现。
+> 看懂pytorch实现版本的代码</br>
+
 ## 3.transformer和BERT理论和实践。
 ## 4.各类文本分类地址:https://github.com/649453932
 ## 5.基于Pytorch的Bert应用项目,地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
