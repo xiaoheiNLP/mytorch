@@ -65,6 +65,7 @@
 
 ## 2.word2vec论文的复现。
 > 看懂pytorch实现版本的代码</br>
+> 实现tensorboard和实现训练中止并重启
 
 ## 3.transformer和BERT理论和实践。
 ## 4.各类文本分类地址(刷题):https://github.com/649453932
