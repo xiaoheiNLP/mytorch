@@ -75,9 +75,7 @@ if __name__ == "__main__":
 
         print("model outputs.size: {}".format(outputs.size()))
 
-    print("CUDA_VISIBLE_DEVICES :{}".format(os.environ["CUDA_VISIBLE_DEVICES"]))
+    # print("CUDA_VISIBLE_DEVICES :{}".format(os.environ["CUDA_VISIBLE_DEVICES"]))
     print("device_count :{}".format(torch.cuda.device_count()))
 
 
-if __name__ == '__main__':
-    get_gpu_memory()
