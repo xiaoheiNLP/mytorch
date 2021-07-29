@@ -66,6 +66,13 @@ ___
 ---
 
 
+# 硬件
+> GPU:8G,NVIDIA GeForce RTX 3070 Ti</br>
+> window-GPU运行时间:187.19s
+> window-CPU运行时间:802.89s
+---
+---
+
 # 目前的问题
 ## 1.GPU计算的使用，***.cuda(),熟悉语法。
 > ~~看资料然后多试试~~</br>
@@ -78,6 +85,8 @@ ___
 ## 4.各类文本分类地址(刷题):https://github.com/649453932
 ## 5.基于Pytorch的Bert应用项目,地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
 ## 6.各类算法比赛的代码:https://github.com/datawhalechina/competition-baseline
+
+
 
 表头|表头|表头
 ---|:--:|---:
