@@ -2,7 +2,7 @@
 ====
 
 # word2vec
-## 一.十问word2vec
+## *一.十问word2vec*
 ### 1.介绍一下word2vec:
 > a.两个模型是CBOW和Skip-gram，两个加速训练的技巧是HS(Hierarchical Softmax)和负采样</br>
 > b.假设一个训练样本是核心词w和其上下文context（w）组成，CBOW就是用去预测w;而SKip-gram则反过来，是用w去预测context(w)里的所有词</br>
@@ -47,6 +47,9 @@
 
 ### 10.为什么用的是线性激活函数？
 >word2vec不是为了做语言模型，它不需要预测得更准
+---
+---
+
 
 ## 二.论文复现
 > 代码位于word2vec目录中
@@ -59,15 +62,24 @@
 ### 1.
 ### 2.
 
+___
+---
+
+
 # 目前的问题
 ## 1.GPU计算的使用，***.cuda(),熟悉语法。
-> 看资料然后多试试</br>
+> ~~看资料然后多试试~~</br>
 
 ## 2.word2vec论文的复现。
-> 看懂pytorch实现版本的代码</br>
-> 实现tensorboard和实现训练中止并重启
+> ~~看懂pytorch实现版本的代码~~</br>
+> ~~实现tensorboard和实现训练中止并重启~~</br>
 
 ## 3.transform和BERT理论和实践。
 ## 4.各类文本分类地址(刷题):https://github.com/649453932
 ## 5.基于Pytorch的Bert应用项目,地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
 ## 6.各类算法比赛的代码:https://github.com/datawhalechina/competition-baseline
+
+表头|表头|表头
+---|:--:|---:
+内容|内容|内容
+内容|内容|内容
