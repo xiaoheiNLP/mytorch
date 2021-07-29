@@ -51,14 +51,14 @@ class Word2Vec:
 
             process_bar.set_postfix(loss=loss.data)
             process_bar.update()
-        torch.save(self.model.state_dict(), "../results/skipgram_nge_0729_cpu.pkl")
+        torch.save(self.model.state_dict(), "../results/skipgram_nge_0729_cpu_mac.pkl")
         self.model.save_embedding(self.data.id2word_dict, self.output_file_name)
 
 
 if __name__ == '__main__':
     import time
     t_start = time.time()
-    w2v = Word2Vec(input_file_name='../data/text8.txt', output_file_name="../results/skip_gram_neg_0729_cpu.txt")
+    w2v = Word2Vec(input_file_name='../data/text8.txt', output_file_name="../results/skip_gram_neg_0729_cpu_mac.txt")
     w2v.train()
     t_end = time.time()
     print("训练消耗时间：{}".format(t_end - t_start))

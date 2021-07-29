@@ -70,6 +70,7 @@ ___
 > GPU:8G,NVIDIA GeForce RTX 3070 Ti</br>
 > window-GPU运行时间:187.19s
 > window-CPU运行时间:802.89s
+> mac-cpu运行时间：904.48
 ---
 ---
 
