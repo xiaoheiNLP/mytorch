@@ -1,13 +1,15 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 
 
 class SkipGramModel(nn.Module):
     def __init__(self, vocab_size, embed_size):
         super(SkipGramModel, self).__init__()
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        # self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = device
         self.vocab_size = vocab_size
         self.embed_size = embed_size
         self.w_embeddings = nn.Embedding(vocab_size, embed_size)

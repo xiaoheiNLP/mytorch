@@ -7,6 +7,8 @@ import torch.optim as optim
 from tqdm import tqdm
 import torch
 import argumentparser as argumentparser
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 
 args = argumentparser.ArgumentParser()
 WINDOW_SIZE = args.window_size  # 上下文窗口c
@@ -21,7 +23,7 @@ class Word2Vec:
     def __init__(self, input_file_name, output_file_name):
         self.output_file_name = output_file_name
         self.data = InputData(input_file_name, MIN_COUNT)
-        self.model = SkipGramModel(self.data.word_count, EMB_DIMENSION).cuda()
+        self.model = SkipGramModel(self.data.word_count, EMB_DIMENSION).to(device)
         self.lr = LR
         self.optimizer = optim.SGD(self.model.parameters(), lr=self.lr)
 
@@ -49,14 +51,14 @@ class Word2Vec:
 
             process_bar.set_postfix(loss=loss.data)
             process_bar.update()
-        torch.save(self.model.state_dict(), "../results/skipgram_nge_0728.pkl")
+        torch.save(self.model.state_dict(), "../results/skipgram_nge_0729_cpu.pkl")
         self.model.save_embedding(self.data.id2word_dict, self.output_file_name)
 
 
 if __name__ == '__main__':
     import time
     t_start = time.time()
-    w2v = Word2Vec(input_file_name='../data/text8.txt', output_file_name="../results/skip_gram_neg_0728.txt")
+    w2v = Word2Vec(input_file_name='../data/text8.txt', output_file_name="../results/skip_gram_neg_0729_cpu.txt")
     w2v.train()
     t_end = time.time()
     print("训练消耗时间：{}".format(t_end - t_start))
