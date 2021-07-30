@@ -5,20 +5,25 @@
 # @date       : 2019-08-21 10:08:00
 # @brief      : lenet模型定义
 """
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
+device = torch.device('cpu')
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 class LeNet(nn.Module):
     def __init__(self, classes):
         super(LeNet, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
+        self.device = device
         self.conv2 = nn.Conv2d(6, 16, 5)
         self.fc1 = nn.Linear(16*5*5, 120)
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, classes)
 
     def forward(self, x):
+        x = x.to(device)
         out = F.relu(self.conv1(x))
         out = F.max_pool2d(out, 2)
         out = F.relu(self.conv2(out))
