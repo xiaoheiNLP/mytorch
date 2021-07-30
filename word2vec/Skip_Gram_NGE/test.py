@@ -55,7 +55,7 @@ def test(test_datas):
 
 
 def test_2():
-    data = open("../results/skip_gram_neg.txt").readlines()[1:]
+    data = open("../results/skip_gram_neg_0729.txt").readlines()[1:]
     word2id = {}
     id2word = {}
     word2embed = {}
