@@ -45,11 +45,18 @@ class Word2Vec:
             pos_v = pos_v
             neg_v = neg_v
 
-            self.optimizer.zero_grad()
+            self.optimizer.zero_grad()      # 把模型中参数的梯度设为0
             loss = self.model.forward(pos_w, pos_v, neg_v)
+
+            """
+            那么为什么optimizer.step()需要放在每一个batch训练中，而不是epoch训练中？
+            这是因为现在的mini-batch训练模式是假定每一个训练集就只有mini-batch这样大，因此实际上可以将每一次mini-batch看做是一次训练，一次训练更新一次参数空间，因而optimizer.step()放在这里。
+            Epoch由一个或多个Batch组成
+            """
             loss.backward()
             self.optimizer.step()
 
+            # 进度条设置
             process_bar.set_postfix(loss=loss.data)
             process_bar.update()
         torch.save(self.model.state_dict(), "../results/skipgram_nge_0730_gpu_windows.pkl")
