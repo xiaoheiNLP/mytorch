@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 """
 @author: xinquan
-@file: test_gpu.py
-@time: 2021/7/21 10:12 下午
+@file: __init__.py.py
+@time: 2021/8/3 9:59 下午
 @desc: 
 """
 import os
