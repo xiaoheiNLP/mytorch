@@ -25,7 +25,6 @@ if __name__ == '__main__':
     model_name = args.model  # 'TextRCNN'  # TextCNN, TextRNN, FastText, TextRCNN, TextRNN_Att, DPCNN, Transformer
     if model_name == 'FastText':
         from utils_fasttext import build_dataset, build_iterator, get_time_dif
-
         embedding = 'random'
     else:
         from utils import build_dataset, build_iterator, get_time_dif
@@ -40,6 +39,7 @@ if __name__ == '__main__':
     start_time = time.time()
     print("Loading data...")
     vocab, train_data, dev_data, test_data = build_dataset(config, args.word)
+
     train_iter = build_iterator(train_data, config)
     dev_iter = build_iterator(dev_data, config)
     test_iter = build_iterator(test_data, config)
@@ -52,4 +52,5 @@ if __name__ == '__main__':
     if model_name != 'Transformer':
         init_network(model)
     print(model.parameters)
+    print('train_iter:{}'.format(train_iter))
     train(config, model, train_iter, dev_iter, test_iter)
