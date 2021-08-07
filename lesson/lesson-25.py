@@ -13,7 +13,8 @@ root_path = os.path.split(os.path.realpath(__file__))[0]  # 获取该脚本的�
 import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
-import sys, os
+import sys
+import os
 hello_pytorch_DIR = os.path.abspath(os.path.dirname(__file__)+os.path.sep+".."+os.path.sep+"..")
 sys.path.append(hello_pytorch_DIR)
 
