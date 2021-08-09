@@ -103,11 +103,25 @@ def evaluate(config, model, data_iter, test=False):
     labels_all = np.array([], dtype=int)
     with torch.no_grad():
         for texts, labels in data_iter:
+            # print('labels:', labels)
+            # print('texts:', texts)
+            # print("----"*8)
+            # print(np.shape(labels))
+            # print()
+            # print(np.shape(texts))
+            # exit("1111")
             outputs = model(texts)
             loss = F.cross_entropy(outputs, labels)
+            # print('outputs:', outputs)
+            # print('loss:', loss)
             loss_total += loss
             labels = labels.data.cpu().numpy()
+            print('outputs:', outputs)
+            print('outputs.data:', outputs.data)
             predic = torch.max(outputs.data, 1)[1].cpu().numpy()
+            print('labels:', labels)
+            print('predic:', predic)
+            exit('pause')
             labels_all = np.append(labels_all, labels)
             predict_all = np.append(predict_all, predic)
 
@@ -117,3 +131,4 @@ def evaluate(config, model, data_iter, test=False):
         confusion = metrics.confusion_matrix(labels_all, predict_all)
         return acc, loss_total / len(data_iter), report, confusion
     return acc, loss_total / len(data_iter)
+

@@ -6,7 +6,7 @@ from importlib import import_module
 import numpy as np
 import torch
 
-from train_eval import train, init_network
+from train_eval import train, init_network, test
 
 parser = argparse.ArgumentParser(description='Chinese Text Classification')
 parser.add_argument('--model', type=str, required=True,
@@ -53,4 +53,5 @@ if __name__ == '__main__':
         init_network(model)
     print(model.parameters)
     print('train_iter:{}'.format(train_iter))
-    train(config, model, train_iter, dev_iter, test_iter)
+    # train(config, model, train_iter, dev_iter, test_iter)
+    test(config, model, test_iter)
