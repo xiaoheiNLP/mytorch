@@ -85,8 +85,9 @@ ___
 ## 3.transform和BERT理论和实践。
 ## 4.各类文本分类地址(刷题):https://github.com/649453932
 ## 5.基于Pytorch的Bert应用项目,地址:https://mp.weixin.qq.com/s/GLG1NJQFboC-YyOT-sjF2Q
-## 6.各类算法比赛的代码:https://github.com/datawhalechina/competition-baseline
-## 7.小工具，查看CPU/GPU实时情况：https://github.com/XuehaiPan/nvitop#device
+## 6.实战https://mp.weixin.qq.com/s/qtbo2krCikFDhgomFoAr9g
+## 7.各类算法比赛的代码:https://github.com/datawhalechina/competition-baseline
+## 8.小工具，查看CPU/GPU实时情况：https://github.com/XuehaiPan/nvitop#device
 
 
 
