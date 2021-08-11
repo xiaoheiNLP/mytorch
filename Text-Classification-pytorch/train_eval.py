@@ -103,13 +103,6 @@ def evaluate(config, model, data_iter, test=False):
     labels_all = np.array([], dtype=int)
     with torch.no_grad():
         for texts, labels in data_iter:
-            # print('labels:', labels)
-            # print('texts:', texts)
-            # print("----"*8)
-            # print(np.shape(labels))
-            # print()
-            # print(np.shape(texts))
-            # exit("1111")
             outputs = model(texts)
             loss = F.cross_entropy(outputs, labels)
             # print('outputs:', outputs)
