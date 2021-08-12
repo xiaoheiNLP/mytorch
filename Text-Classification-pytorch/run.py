@@ -51,7 +51,5 @@ if __name__ == '__main__':
     model = x.Model(config).to(config.device)
     if model_name != 'Transformer':
         init_network(model)
-    print(model.parameters)
-    print('train_iter:{}'.format(train_iter))
     # train(config, model, train_iter, dev_iter, test_iter)
     test(config, model, test_iter)

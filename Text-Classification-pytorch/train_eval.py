@@ -105,19 +105,11 @@ def evaluate(config, model, data_iter, test=False):
         for texts, labels in data_iter:
             outputs = model(texts)
             loss = F.cross_entropy(outputs, labels)
-            # print('outputs:', outputs)
-            # print('loss:', loss)
             loss_total += loss
             labels = labels.data.cpu().numpy()
-            print('outputs:', outputs)
-            print('outputs.data:', outputs.data)
             predic = torch.max(outputs.data, 1)[1].cpu().numpy()
-            print('labels:', labels)
-            print('predic:', predic)
-            exit('pause')
             labels_all = np.append(labels_all, labels)
             predict_all = np.append(predict_all, predic)
-
     acc = metrics.accuracy_score(labels_all, predict_all)
     if test:
         report = metrics.classification_report(labels_all, predict_all, target_names=config.class_list, digits=4)
